@@ -2,6 +2,24 @@
   grid-area: n;
   background-color: cornflowerblue;
 }
-.Navbaritem {
+/* .Navbaritem a {
  color:white;
+ text-decoration: none;
+}
+.Navbaritem a.activeLink{
+  color:red;
+}
+#sidebar a.active{
+  color:red;
+} */
+.Link {
+  color:aqua;
+
+}
+.Link:active {
+  color:red;
+
+}
+.Link:focus{
+  color:red;
 }

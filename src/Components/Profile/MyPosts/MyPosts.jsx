@@ -1,12 +1,12 @@
 import React from 'react';
 import Post from './Post/Post';
+import Avatarka from '../AvatarkaProfile/Avatarka';
+import styles from './MyPosts.module.css';
 const MyPosts =() =>{
     return  <div >
-    <div>
-      <img src='https://cdn.ananasposter.ru/image/cache/catalog/poster/travel/87/7834-1000x830.jpg'/>
-    </div>
-    <div>
-      My Posts
+         <Avatarka />
+    <div className={styles.postBlock}>
+     <h2> My Posts</h2>
       <div>
         <textarea></textarea>
         <button>Напиши че нибудь</button>
@@ -14,8 +14,8 @@ const MyPosts =() =>{
       <div>
         New post
       </div>
-      <Post message='Hi how are you?' />
-        <Post message='Ist my first props' />
+      <Post  likecount='15' />
+        <Post likecount='20' />
       </div>
     </div>
 }
