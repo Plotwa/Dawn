@@ -3,20 +3,25 @@ import Post from './Post/Post';
 import Avatarka from '../AvatarkaProfile/Avatarka';
 import styles from './MyPosts.module.css';
 const MyPosts =(props) =>{
+  let newpostElement=React.createRef();
+  let addPost=()=>{
+    let text=newpostElement.current.value
+      alert(text)
+  }
  
     return  <div >
-         <Avatarka />
+
     <div className={styles.postBlock}>
      <h2> My Posts</h2>
       <div>
-        <textarea></textarea>
-        <button>Напиши че нибудь</button>
+        <textarea ref={newpostElement}></textarea>
+        <button onClick={addPost}>Напиши че нибудь</button>
       </div>
       <div>
         New post
       </div>
-      <Post post={props.postsData[0].post} id={props.postsData[0].id} likecount={props.postsData[0].likescount} />
-      <Post post={props.postsData[1].post} id={props.postsData[1].id} likecount={props.postsData[1].likescount} />
+      <Post post={props.posts[0].post} id={props.posts[0].id} likecount={props.posts[0].likescount} />
+      <Post post={props.posts[1].post} id={props.posts[1].id} likecount={props.posts[1].likescount} />
       </div>
     </div>
 }
