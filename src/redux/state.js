@@ -16,7 +16,16 @@ messages:[
     {post:'Hi, how are you?',id:1,likescount:12},
     {post:'Problem?',id:2,likescount:15}      
 ],
-},
-  
+},  
+}
+
+ export let addPost =(postMessage)=>{
+  debugger;
+    let newPost={
+      id:5,
+      post:postMessage,
+      likescount:0,
+    }
+    state.profilePage.posts.push(newPost)
 }
 export default state;

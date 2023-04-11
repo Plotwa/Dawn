@@ -5,7 +5,7 @@ import Avatarka from './AvatarkaProfile/Avatarka';
 const Profile =(props) =>{
     return  <div className={styles.content}>
       <Avatarka />
-    <MyPosts posts={props.posts} /> 
+    <MyPosts posts={props.posts}  addPost={props.addPost}/> 
   </div>
 }
 export default Profile;

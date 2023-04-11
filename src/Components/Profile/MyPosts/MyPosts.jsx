@@ -5,8 +5,9 @@ import styles from './MyPosts.module.css';
 const MyPosts =(props) =>{
   let newpostElement=React.createRef();
   let addPost=()=>{
+    debugger;
     let text=newpostElement.current.value
-      alert(text)
+      props.addPost(text)
   }
  
     return  <div >
