@@ -1,11 +1,18 @@
-import React from 'react';
-import MyPosts from './MyPosts/MyPosts';
-import styles from './Profile.module.css';
-import Avatarka from './AvatarkaProfile/Avatarka';
-const Profile =(props) =>{
-    return  <div className={styles.content}>
+import React from "react";
+import MyPosts from "./MyPosts/MyPosts";
+import styles from "./Profile.module.css";
+import Avatarka from "./AvatarkaProfile/Avatarka";
+
+const Profile = (props) => {
+  return (
+    <div className={styles.content}>
       <Avatarka />
-    <MyPosts posts={props.posts}  addPost={props.addPost}/> 
-  </div>
-}
+      <MyPosts
+        profilePage={props.profilePage}
+        addPost={props.addPost}
+        updateNewText={props.updateNewText}
+      />
+    </div>
+  );
+};
 export default Profile;
