@@ -5,11 +5,13 @@ import styles from './MyPosts.module.css';
 const MyPosts =(props) =>{
   let newpostElement=React.createRef();
   let addPost=()=>{
-    debugger;
+   
     let text=newpostElement.current.value
       props.addPost(text)
+      newpostElement.current.value = ''
   }
- 
+  let postElements =props.posts.map(posts=><Post post={posts.post} id={posts.id} likecount={posts.likescount} />)
+ debugger;
     return  <div >
 
     <div className={styles.postBlock}>
@@ -21,8 +23,7 @@ const MyPosts =(props) =>{
       <div>
         New post
       </div>
-      <Post post={props.posts[0].post} id={props.posts[0].id} likecount={props.posts[0].likescount} />
-      <Post post={props.posts[1].post} id={props.posts[1].id} likecount={props.posts[1].likescount} />
+      {postElements}
       </div>
     </div>
 }
