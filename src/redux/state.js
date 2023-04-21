@@ -1,7 +1,5 @@
-import { rerenderEntireTree } from "../render";
-
-
-let state = {
+let store = {
+  _state:{
   messagePage: {
     dialogs: [
       { id: 1, name: 'Miha' },
@@ -20,38 +18,46 @@ let state = {
       { post: 'Hi, how are you?', id: 1, likescount: 12 },
       { post: 'Problem?', id: 2, likescount: 15 }
     ],
-    newTextPost:'it-denchikPro.com',
+    newTextPost:'it-denchikPro.com', },
   },
-}
-window.state=state;
-export let addPost = () => {
+  getState(){
+    return  this._state;
+  },
+ _callSubscribe (){
+  console.log('Hey HEy')
+},
+addPost (){
   
   let newPost = {
     id: 3,
-    post:state.profilePage.newTextPost,
+    post:this._state.profilePage.newTextPost,
     likescount: 0,
   }
-  state.profilePage.posts.push(newPost)
-  state.profilePage.newTextPost=""
-  rerenderEntireTree(state);
-}
-export let updateNewText = (newUpdate) => {
-  state.profilePage.newTextPost = newUpdate;
-  rerenderEntireTree(state);
-}
-export let updateNewMessage = (newUpdate) => {
-  state.messagePage.newMessageText = newUpdate;
-  rerenderEntireTree(state);
-
-}
-
-export let addMessage = (newMessageText) => {
+  this._state.profilePage.posts.push(newPost)
+  this._state.profilePage.newTextPost=""
+  this._callSubscribe(this._state);
+},
+updateNewText (newUpdate) {
+  this._state.profilePage.newTextPost = newUpdate;
+  this.callSubscribe(this._state);
+},
+updateNewMessage (newUpdate)  {
+  this._state.messagePage.newMessageText = newUpdate;
+  this.callSubscribe(this._state);
+},
+addMessage (newMessageText)  {
   
   let newMessage = {
     id: 3,
     message:newMessageText,   
   }
-  state.messagePage.messages.push(newMessage ) 
-  rerenderEntireTree(state);
+  this._state.messagePage.messages.push(newMessage ) 
+  this.callSubscribe(this._state);
+},
+ subscribe (observer){
+   this.callSubscribe=observer;
 }
-export default state;
+}
+export default store;
+
+
