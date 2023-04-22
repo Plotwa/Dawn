@@ -1,3 +1,5 @@
+const UPDATE_NEW_POST_TEXT='UPDATE-NEW-POST-TEXT'
+const ADD_POST='ADD-POST'
 let store = {
   _state:{
   messagePage: {
@@ -26,24 +28,12 @@ let store = {
  _callSubscribe (){
   console.log('Hey HEy')
 },
-addPost (){
-  
-  let newPost = {
-    id: 3,
-    post:this._state.profilePage.newTextPost,
-    likescount: 0,
-  }
-  this._state.profilePage.posts.push(newPost)
-  this._state.profilePage.newTextPost=""
-  this._callSubscribe(this._state);
-},
-updateNewText (newUpdate) {
-  this._state.profilePage.newTextPost = newUpdate;
-  this.callSubscribe(this._state);
+subscribe (observer){
+  this._callSubscribe=observer;
 },
 updateNewMessage (newUpdate)  {
   this._state.messagePage.newMessageText = newUpdate;
-  this.callSubscribe(this._state);
+  this._callSubscribe(this._state);
 },
 addMessage (newMessageText)  {
   
@@ -52,11 +42,37 @@ addMessage (newMessageText)  {
     message:newMessageText,   
   }
   this._state.messagePage.messages.push(newMessage ) 
-  this.callSubscribe(this._state);
+  this._callSubscribe(this._state);
 },
- subscribe (observer){
-   this.callSubscribe=observer;
+
+ dispatch(action){
+  if (action.type==='ADD-POST'){
+    debugger;
+    let newPost = {
+      id: 3,
+      post:this._state.profilePage.newTextPost,
+      likescount: 0,
+    }
+    this._state.profilePage.posts.push(newPost)
+    this._state.profilePage.newTextPost=""
+    this._callSubscribe(this._state);
+  }
+   else if(action.type==='UPDATE-NEW-POST-TEXT'){
+    this._state.profilePage.newTextPost=action.newText;
+    this._callSubscribe(this._state);
+  }
+ }
 }
+export let addPostActionCreator =()=>{
+  
+  return { 
+    type:ADD_POST
+  }
+}
+ export let addUpdateNewPostActionCreator=(text)=>{
+  return { 
+    type:UPDATE_NEW_POST_TEXT,newText:text
+  }
 }
 export default store;
 

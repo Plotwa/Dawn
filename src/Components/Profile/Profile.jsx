@@ -9,8 +9,8 @@ const Profile = (props) => {
       <Avatarka />
       <MyPosts
         profilePage={props.profilePage}
-        addPost={props.addPost}
-        updateNewText={props.updateNewText}
+        dispatch={props.dispatch}
+      
       />
     </div>
   );
