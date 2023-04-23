@@ -1,4 +1,4 @@
-import store  from './redux/state';
+import store  from './redux/store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -13,8 +13,7 @@ export let rerenderEntireTree = (state) => {
     <React.StrictMode>
     <BrowserRouter>
         <App appState={state} dispatch={store.dispatch.bind(store)}
-        addMessage={store.addMessage.bind(store)}
-        updateNewMessage={store.updateNewMessage.bind(store)}/>
+        />
         </BrowserRouter>
       </React.StrictMode>
     

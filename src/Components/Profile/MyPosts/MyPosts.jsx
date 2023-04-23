@@ -2,7 +2,8 @@ import React from "react";
 import Post from "./Post/Post";
 import Avatarka from "../AvatarkaProfile/Avatarka";
 import styles from "./MyPosts.module.css";
-import { addPostActionCreator, addUpdateNewPostActionCreator } from "../../../redux/state";
+import { addPostActionCreator, addUpdateNewPostActionCreator } from "../../../redux/profile_reducer";
+
 
 
 const MyPosts = (props) => {
