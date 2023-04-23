@@ -7,7 +7,7 @@ import { addPostActionCreator, addUpdateNewPostActionCreator } from "../../../re
 
 
 const MyPosts = (props) => {
-  let newpostElement = React.createRef();
+ 
 
   let onAddPostClick = () => {
     props.dispatch(addPostActionCreator());
@@ -17,8 +17,8 @@ const MyPosts = (props) => {
     <Post post={posts.post} id={posts.id} likecount={posts.likescount} />
   ));
 
-  let onTextChange = () => {
-    let text = newpostElement.current.value;
+  let onTextChange = (e) => {
+    let text =e.target.value;
     let action=(addUpdateNewPostActionCreator(text))
     props.dispatch(action);
   };
@@ -30,7 +30,7 @@ const MyPosts = (props) => {
         <div>
           <textarea
             onChange={onTextChange}
-            ref={newpostElement}
+            
             value={props.profilePage.newTextPost}
           />
           <button onClick={onAddPostClick}>Напиши че нибудь</button>

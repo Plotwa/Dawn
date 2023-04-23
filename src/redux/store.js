@@ -1,5 +1,6 @@
 import dialogReducer from "./dialog_reducer";
 import profileReducer from "./profile_reducer";
+import sidebarReducer from "./sidebar";
 
 
 let store = {
@@ -38,6 +39,7 @@ let store = {
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action);
     this._state.messagePage = dialogReducer(this._state.messagePage, action);
+    this._state.sidebar=sidebarReducer(this._state.sidebar);
     this._callSubscribe(this._state);
   },
 };
