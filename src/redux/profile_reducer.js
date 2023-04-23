@@ -31,7 +31,7 @@ export let addPostActionCreator = () => {
       type: ADD_POST,
     };
   };
-  export let addUpdateNewPostActionCreator = (text) => ({
+  export let UpdateNewPostActionCreator = (text) => ({
     type: UPDATE_NEW_POST_TEXT,
     newText: text,
   });

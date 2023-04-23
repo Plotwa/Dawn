@@ -38,7 +38,7 @@ export let addUpdateNewMessageActionCreator = (text) => ({
     type: UPDATE_NEW_MESSAGE,
     newMessage: text,
   });
-  export let addAddMessageActionCreator = () => ({
+  export let sendMessageActionCreator = () => ({
     type: ADD_MESSAGE,
   });
 export default dialogReducer;

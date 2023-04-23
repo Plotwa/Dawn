@@ -1,16 +1,13 @@
 import React from "react";
-import MyPosts from "./MyPosts/MyPosts";
 import styles from "./Profile.module.css";
 import Avatarka from "./AvatarkaProfile/Avatarka";
+import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 const Profile = (props) => {
   return (
     <div className={styles.content}>
       <Avatarka />
-      <MyPosts
-        profilePage={props.profilePage}
-        dispatch={props.dispatch}
-      
+      <MyPostsContainer store={props.store}      
       />
     </div>
   );
