@@ -13,12 +13,12 @@ const MyPosts = (props) => {
     props.addPost()
   };
 
-  let postElements = props.state.posts.map((posts) => (
+  let postElements = props.posts.map((posts) => (
     <Post post={posts.post} id={posts.id} likecount={posts.likescount} />
   ));
 
-  let onTextChange = () => {
-    let text = newMessageElement.current.value;
+  let onTextChange = (e) => {
+    let text = e.target.value;
     props.updateNewTextPost(text);
   };
 
@@ -30,7 +30,7 @@ const MyPosts = (props) => {
           <textarea
             onChange={onTextChange}
             ref={newMessageElement}
-            value={props.state.newTextPost}
+            value={props.newTextPost}
           />
           <button onClick={onAddPost}>Напиши че нибудь</button>
         </div>
