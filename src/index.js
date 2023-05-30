@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
 
-export let rerenderEntireTree = () => {
+
   const root = ReactDOM.createRoot(document.getElementById("root"));
   root.render(
     <React.StrictMode>
@@ -18,8 +18,5 @@ export let rerenderEntireTree = () => {
       </BrowserRouter>
     </React.StrictMode>
   );
-};
-store.subscribe(() => {
-  rerenderEntireTree();
-});
-rerenderEntireTree();
+
+
